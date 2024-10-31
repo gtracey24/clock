@@ -3,11 +3,14 @@ import { useState } from "react";
 import { Card, Form, Button } from "react-bootstrap"
 
 const UploadForm = () => {
-    const [file, setFile] = useState();
+    const [file, setFile] = useState(null);
+
     function handleChange(e) {
-        console.log(e.target.files);
-        setFile(URL.createObjectURL(e.target.files[0]));
-    }
+        if (e.target.files) {
+            setFile(e.target.files[0]);
+        }
+    };
+    
 
     return (
         <>
@@ -17,7 +20,7 @@ const UploadForm = () => {
                 <Form.Control type="file"  >
       
                 </Form.Control>
-                <Button>Upload</Button>
+                <Button type="submit">Upload</Button>
             </Form.Group>
         </Form>
         </>
