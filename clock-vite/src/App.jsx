@@ -1,30 +1,45 @@
 import Clock from "./components/clock"
 import UploadForm from "./components/UploadForm"
 import FileUploadSingle from "./components/FileUploadSingle"
-import FetchTest from "./components/FetchTest"
+import DailyQuote from "./components/DailyQuote"
+import RandomFox from "./components/RandomFox"
+import BackgroundImage from "./components/BackgroundImage"
+import { useState, useEffect } from "react"
 import React from "react"
+
+const endpoint = "https://randomfox.ca/floof/";
 
 function App() {
 
 
+  const [image, setImage] = useState([]);
 
-  async function fetchData() {
-    try {
-        const response = await fetch('https://dog.ceo/api/breeds/image/random');
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error(error.message);
-    }
-    return dogImage;
-}
+  useEffect(() => {
+      (async () => {
+        try {
+          const response = await fetch(endpoint);
+          const data = await response.json();
+          setImage(data);
+          console.log(data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      })();
+    }, []);
 
-fetchData();
+    const foxImage = image.image;
 
   return (
     <>
-
-    <Clock />
+        <div style={{
+      backgroundImage: `url(${foxImage})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      height: '100vh',
+      width: '100vw'
+    }}>
+      <Clock />
+    </div>
     </>
   )
 }
