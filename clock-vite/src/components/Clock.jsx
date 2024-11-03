@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Card from 'react-bootstrap/Card';
+import Button from "react-bootstrap/Button"
 
 const Clock = () => {
   const [time, setTime] = useState(new Date());
@@ -12,9 +14,20 @@ const Clock = () => {
     return () => clearInterval(timeInterval);
   }, []);
 
-
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", 
-    "September", "October", "November", "December"];
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   let hours = time.getHours().toLocaleString("en-US");
   let minutes = time.getMinutes();
@@ -28,8 +41,11 @@ const Clock = () => {
 
   return (
     <>
-      <h1>{calendarDate}</h1>
-      <h1>{clockDisplay}</h1>
+      <Card style={{ width: '18rem' }}>
+        <Card.Title className="clock-position">{calendarDate}</Card.Title>
+        <Card.Title>{clockDisplay}</Card.Title>
+        <Card.Body>Good Evening</Card.Body>
+      </Card>
     </>
   );
 };

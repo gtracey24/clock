@@ -1,10 +1,13 @@
-import Clock from "./components/clock"
+import Clock from "./components/Clock"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import UploadForm from "./components/UploadForm"
 import FileUploadSingle from "./components/FileUploadSingle"
 import DailyQuote from "./components/DailyQuote"
 import RandomFox from "./components/RandomFox"
 import BackgroundImage from "./components/BackgroundImage"
 import SideImage from "./components/SideImage"
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import { useState, useEffect } from "react"
 import React from "react"
 
@@ -32,18 +35,9 @@ function App() {
 
   return (
     <>
-        <div style={{
-      backgroundImage: `url(${foxImage})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      height: '100vh',
-      width: '100vw'
-    }}>
 {/* 11/1 TODO-Create a side image card. Currently not displaying card correctly */}
-      <SideImage />
       <Clock />
-    </div>
+      <RandomFox />
     </>
   )
 }

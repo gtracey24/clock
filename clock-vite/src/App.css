@@ -41,4 +41,8 @@
   color: #888;
 }
 
-
+.clock-postion {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
