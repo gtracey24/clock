@@ -4,6 +4,8 @@ import UploadForm from "./components/UploadForm"
 import FileUploadSingle from "./components/FileUploadSingle"
 import DailyQuote from "./components/DailyQuote"
 import RandomFox from "./components/RandomFox"
+import PasswordCard from "./components/PasswordCard";
+import WeatherCard from "./components/WeatherCard";
 import BackgroundImage from "./components/BackgroundImage"
 import SideImage from "./components/SideImage"
 import Col from 'react-bootstrap/Col';
@@ -38,6 +40,8 @@ function App() {
 {/* 11/1 TODO-Create a side image card. Currently not displaying card correctly */}
       <Clock />
       <RandomFox />
+      <PasswordCard />
+      <WeatherCard />
     </>
   )
 }
