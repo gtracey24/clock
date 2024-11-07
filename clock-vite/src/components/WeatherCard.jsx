@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 
-const endpoint = 'https://api.weatherstack.com/current?access_key=cf9647fb5ee5cbba78fa3992f9a76608&query=St. Louis';;
+const endpoint = 'https://api.weather.gov/gridpoints/LSX/96,74/forecast';;
 
 const WeatherCard = () => {
   const [weather, setWeather] = useState([]);
