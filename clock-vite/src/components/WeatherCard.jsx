@@ -19,13 +19,13 @@ const WeatherCard = () => {
     })();
   }, []);
 
-  const genWeather = weather.current(temperature);
+  const detailedForecast = weather.properties.periods[0].detailedForecast;
+
 
   return (
     <>
       <Card style={{ width: "18rem" }}>
-        <Card.Title>Random Password</Card.Title>
-        <Card.Text>{genWeather}</Card.Text>
+        <Card.Text>{detailedForecast}</Card.Text>
       </Card>
     </>
   );

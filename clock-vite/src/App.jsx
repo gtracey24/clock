@@ -42,7 +42,7 @@ function App() {
         <Clock />
         <RandomFox />
         <PasswordCard />
-        {/* <WeatherCard /> */}
+        <WeatherCard />
         </Col>
       </Stack>
     </>
