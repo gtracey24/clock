@@ -1,16 +1,4 @@
-import Clock from "./components/Clock";
-import "bootstrap/dist/css/bootstrap.min.css";
-import UploadForm from "./components/UploadForm";
-import FileUploadSingle from "./components/FileUploadSingle";
-import DailyQuote from "./components/DailyQuote";
-import RandomFox from "./components/RandomFox";
-import PasswordCard from "./components/PasswordCard";
-import WeatherCard from "./components/WeatherCard";
-import BackgroundImage from "./components/BackgroundImage";
-import SideImage from "./components/SideImage";
-import { Stack } from "react-bootstrap";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import Clock from "./components/clock";
 import { useState, useEffect } from "react";
 import React from "react";
 
@@ -31,20 +19,22 @@ function App() {
       }
     })();
   }, []);
-
+  
   const foxImage = image.image;
 
   return (
     <>
-      {/* 11/1 TODO-Create a side image card. Currently not displaying card correctly */}
-      <Stack spacing={15}>
-      <Col xs={1} md={2} mt-4 className="g-3">
+      <div
+        style={{
+          backgroundImage: `url(${foxImage})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          height: "100vh",
+          width: "100vw",
+        }}
+      >
         <Clock />
-        <RandomFox />
-        <PasswordCard />
-        <WeatherCard />
-        </Col>
-      </Stack>
+      </div>
     </>
   );
 }

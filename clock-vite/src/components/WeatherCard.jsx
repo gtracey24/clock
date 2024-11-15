@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 
-const endpoint = 'https://api.weather.gov/gridpoints/LSX/96,74/forecast';;
+const endpoint = 'https://api.weather.gov/gridpoints/LSX/96,74/forecast';
 
 const WeatherCard = () => {
   const [weather, setWeather] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        setWeather(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    })();
+    fetch(endpoint)
+        .then((response) => {
+          return response.json();
+        })
+        .then((weather) => {
+          setWeather(weather)
+        console.log(weather);
+    });
   }, []);
 
-  const detailedForecast = weather.properties.periods[0].detailedForecast;
+  const detailedForecast = weather.geometry.type;
 
 
   return (

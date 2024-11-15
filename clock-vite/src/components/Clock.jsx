@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Card from 'react-bootstrap/Card';
-import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card";
 
 const Clock = () => {
   const [time, setTime] = useState(new Date());
@@ -39,13 +38,21 @@ const Clock = () => {
   let calendarDate = monthName + " " + day + ", " + year;
   let clockDisplay = hours + ":" + minutes + ":" + seconds;
 
+  let greeting;
+
+  if (hours >= 12 && hours <= 17) {
+    greeting = "Good Afternoon";
+  } else if (hours <= 11) {
+    greeting = "Good Morning";
+  } else greeting = "Good Evening";
+
   return (
     <>
-      <Card style={{ width: '18rem' }}>
-        <Card.Title className="clock-position">{calendarDate}</Card.Title>
-        <Card.Title>{clockDisplay}</Card.Title>
-        <Card.Body>Good Evening</Card.Body>
-      </Card>
+      <div className="clock">
+        <h1>{calendarDate}</h1>
+        <h1>{clockDisplay}</h1>
+        <p>{greeting}</p>
+      </div>
     </>
   );
 };
